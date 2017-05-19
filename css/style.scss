@@ -1,0 +1,128 @@
+@import "compass";
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #fdfcf6;
+$subColor: #bea300;
+$keyColor: #14c0c9;
+$fontColor: #4c4c4c;
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Header
+------------------------------------------------------------*/
+.box {
+  background-image: url("../images/img_background.jpg"); 
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+// desktop
+@media (min-width: 769px) {
+  .box {
+  height: 500px;
+ 
+   }
+}     
+         
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h2 {
+    font-size: 3.2rem;
+    @extend .text-center;
+  }
+}
+
+// events
+#events {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);
+    
+  }
+  h3
+  {
+    color: $fontColor; 
+    margin-bottom: 20px;
+     @extend .text-center;
+  } 
+  .event-box {
+    @include flex(1);
+    margin: 10px 0;
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+}
+// desktop
+@media (min-width: 769px) {
+  #events {
+    .container {
+      @include flex-direction(row);     
+      justify-content: space-between;
+    }
+    .event-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+}
+/* Footer
+------------------------------------------------------------*/
+footer {
+  background-color: $baseColor;
+  padding: 10px 0;
+  text-align: center;
+  color: $fontColor;  
+}
+ .information-button {
+   background-color:$keyColor;
+   color: $fontColor;
+   padding: 10px 20px;
+   @include border-radius(4px);
+   @extend .block-center;
+   display: inline-block;
+ }
+ // desktop
+@media (min-width: 769px) {
+
+   .information-button {
+    &:hover {
+      background-color: $subColor;
+    }
+  }
+}
+  
